@@ -1,23 +1,17 @@
 <?php
 /**
- * Omeka
- * 
- * @copyright Copyright 2007-2012 Roy Rosenzweig Center for History and New Media
- * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
- * @package Omeka
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
  */
 
-// Bootstrap the application.
-require_once 'bootstrap.php';
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-// Configure, initialize, and run the application.
-$application = new Omeka_Application(APPLICATION_ENV);
-$application->getBootstrap()->setOptions(array(
-    'resources' => array(
-        'theme' => array(
-            'basePath' => THEME_DIR,
-            'webBasePath' => WEB_RELATIVE_THEME
-        )
-    )
-));
-$application->initialize()->run();
+/** Loads the WordPress Environment and Template */
+require __DIR__ . '/wp-blog-header.php';
